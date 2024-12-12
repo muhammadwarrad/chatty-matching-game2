@@ -1,38 +1,189 @@
-.App {
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden; 
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to bottom right, #E6F7F3, #FFFFFF); /* Light greenish-white */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  height: 100%;
+}
+
+.app-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+.game-header {
+  flex-shrink: 0;
   text-align: center;
+  margin: 0;
+  padding: 5px 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1 {
+  font-size: 1.2rem;
+  color: #000000; 
+  font-weight: 700;
+  margin: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.status-bar {
+  flex-shrink: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.message {
+  font-size: 0.9rem;
+  color: #000000;
+  text-align: center;
+  margin: 4px 0;
+}
+
+.tries {
+  font-size: 1.0 rem;
+  color: #000000;
+  margin: 2px 0;
+}
+
+.restart-container {
+  flex-shrink: 0;
+  text-align: center;
+  margin: 2px 0;
+}
+
+button {
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  background: #10A37F; 
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+button:hover,
+button:focus {
+  background: #0d8b72; 
+}
+
+button:active {
+  background: #0b6d5a;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 15px;
+  box-sizing: border-box;
+  z-index: 1000;
 }
 
-.App-link {
-  color: #61dafb;
+.modal-content {
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 300px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  text-align: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.modal-content strong {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 1rem;
+  color: #0D4F42;
+}
+
+.modal-content p {
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.modal-content .congrats-message {
+  font-size: 0.9rem;
+  color: #0D4F42;
+}
+
+.grid {
+  flex-grow: 1;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  align-content: center;
+  gap: 3px;
+}
+
+.card-container {
+  position: relative;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.4s ease-in-out;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  background: #fff;
+}
+
+.card-container.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  backface-visibility: hidden;
+  overflow: hidden;
+}
+
+.card-back {
+  background: linear-gradient(135deg, #4CAF91, #10A37F); /* Gradient using OpenAI green tones */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-back img {
+  width: 70%;
+  height: auto;
+  object-fit: contain;
+}
+
+.card-front {
+  transform: rotateY(180deg);
+}
+
+.card-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
