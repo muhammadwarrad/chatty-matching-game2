@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/chatty-matching-game2/static/css/main.3844402c.css",
+    "main.js": "/chatty-matching-game2/static/js/main.57adb24a.js",
+    "static/js/453.e798c57f.chunk.js": "/chatty-matching-game2/static/js/453.e798c57f.chunk.js",
+    "index.html": "/chatty-matching-game2/index.html",
+    "main.3844402c.css.map": "/chatty-matching-game2/static/css/main.3844402c.css.map",
+    "main.57adb24a.js.map": "/chatty-matching-game2/static/js/main.57adb24a.js.map",
+    "453.e798c57f.chunk.js.map": "/chatty-matching-game2/static/js/453.e798c57f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3844402c.css",
+    "static/js/main.57adb24a.js"
+  ]
+}
